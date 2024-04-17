@@ -1,5 +1,6 @@
 package avn.classvrsdk.sample
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -35,6 +36,11 @@ class FirstFragment : Fragment() {
         /*binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }*/
+
+        if (this.activity?.intent?.type.equals("application/x-lifeliqe")) {
+            val bmp = BitmapFactory.decodeFile(this.activity?.intent?.data?.encodedPath)
+            binding.imageView.setImageBitmap(bmp)
+        }
     }
 
     override fun onDestroyView() {

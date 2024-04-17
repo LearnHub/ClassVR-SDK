@@ -1,6 +1,7 @@
 package avn.classvrsdk.sample
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -12,6 +13,7 @@ import android.view.MenuItem
 import avn.classvrsdk.sample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private val TAG = MainActivity::class.java.name
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -33,6 +35,9 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null)
                 .setAnchorView(R.id.fab).show()
         }
+
+        Log.d(TAG, "Launch details: ${this.intent.toString()}")
+        Log.d(TAG, "\t ${this.intent.dataString}")
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
